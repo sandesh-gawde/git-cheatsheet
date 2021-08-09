@@ -12,6 +12,7 @@ git config --global user.name "sandesh-gawde"
 git config user.email "email@example.com"
 git config --global credential.helper wincred     #cache credentials
 git remote add origin https://github.com/sandesh-gawde/Intro_to_C_and_software_design.git   #create remote repo's directory in local
+git pull                                                                                    #Pull changes from remote to local
 git push -u origin master                                                                   #push changes from local to remote
 
 git show HEAD: The commit you are currently on is known as the HEAD commit.
