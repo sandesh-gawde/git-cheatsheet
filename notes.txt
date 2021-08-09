@@ -30,7 +30,7 @@ The workflow for Git collaborations typically follows this order:
 Fetch and merge changes from the remote
 Create a branch to work on a new project feature
 Develop the feature on your branch and commit your work
-Fetch and merge from the remote again (in case new commits were made while you were working)
+Fetch and merge from the remote again (in case new commits were made while you were working) (sync local content with GitHub - git pull)
 Push your branch up to the remote for review
 
 A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer.
