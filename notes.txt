@@ -12,10 +12,10 @@ git init            #creates a new empty Git repository locally with current dir
 git clone https://url/remote-repository     #Clones remote repository locally by creatingremote-repository directory
 git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1 #repo to help visual display of git
 git status          #inspects the contents of the working directory and staging area
-git add adds files from the working directory to the staging area
-git diff shows the difference between the working directory and the staging area
-git commit permanently stores file changes from the staging area in the repository
-git log shows a list of all previous commits
+git add             #adds files from the working directory to the staging area
+git diff            #shows the difference between the working directory and the staging area
+git commit          #permanently stores file changes from the staging area in the repository
+git log             #shows a list of all previous commits
 
 #Sync with remote
 git config --global user.name "sandesh-gawde"
@@ -53,3 +53,23 @@ git remote -v: Lists a Git project’s remotes.
 git fetch origin: Fetches work from the remote into the local copy. Just fetches not merge.
 git merge origin/master: Merges origin/master into your local branch.
 git push origin <branch_name>: Pushes a local branch to the origin remote. Then the origin-master can merge this branch. Local Master is not pushed, any specified branch is pushed to origin Master, NOT changes but branch is pushed.
+
+Additional:
+git diff --staged       #show diff b/w staging area and last commit
+git log -p              #show changes in each commit with commit-log
+git log --stat          #show summary of each commit with commit-log    
+
+* SSH-auth:
+On Linux:
+$ ssh-keygen -t rsa -b 4096 -C "github_email@gmail.com"
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub     #copy this key
+On Git:
+Profile - Settings - SSH and GPG Keys - New SSH key - Title(Key-name-TestTool) - insert key
+Enter git pw if prompted
+On Linux:
+ssh -T git@github.com   #To verify
+git clone ssh://git@github.com/user-name/repo   #copy url for UI, code, SSH
+
+
