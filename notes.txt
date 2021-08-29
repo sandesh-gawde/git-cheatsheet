@@ -58,6 +58,7 @@ Additional:
 git diff --staged       #show diff b/w staging area and last commit
 git log -p              #show changes in each commit with commit-log
 git log --stat          #show summary of each commit with commit-log    
+git log -p ..origin/master      #shows changes in remote that are not in local
 
 * SSH-auth:
 On Linux:
