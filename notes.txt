@@ -12,7 +12,9 @@ git init            #creates a new empty Git repository locally with current dir
 git clone https://url/remote-repository     #Clones remote repository locally by creatingremote-repository directory
 git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1 #repo to help visual display of git
 git status          #inspects the contents of the working directory and staging area
+git restore <filename>              #To restore modified files content
 git add             #adds files from the working directory to the staging area
+git restore --staged <filename>     #To unstage file
 git diff            #shows the difference between the working directory and the staging area
 git commit          #permanently stores file changes from the staging area in the repository
 git log             #shows a list of all previous commits
@@ -21,9 +23,22 @@ git log             #shows a list of all previous commits
 git config --global user.name "sandesh-gawde"
 git config user.email "email@example.com"
 git config --global credential.helper wincred     #cache credentials
+git clone https://github.com/sandesh-gawde/repo-name                                        #clone the repo on local system
 git remote add origin https://github.com/sandesh-gawde/Intro_to_C_and_software_design.git   #create remote repo's directory in local
 git pull                                                                                    #Pull changes from remote to local
 git push -u origin master                                                                   #push changes from local to remote
+
+# Clone v/s remote add v/s fork
+- When a repository is cloned to a local system, it is copied and linked to remote system. Any changes can be synced (pushed or pulled) with remote system.
+git clone <url>
+- To avoid syncing changes to other's repository, we can clone them and link with our remtoe system. By remote_delete + remote_add or set_url.
+- Remote can simply be used to link any locally intiated repo with remote
+git remote remove origin
+git remote add origin <url>
+OR
+git remote set-url origin <url>
+- Fork can be used to clone without sync with other's repo. It is equivalent to clone and link to remote, without relating to author's repo.
+
 
 git show HEAD: The commit you are currently on is known as the HEAD commit.
 git checkout HEAD filename (git checkout -- filename): Discards changes in the working directory.
