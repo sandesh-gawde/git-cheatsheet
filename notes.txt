@@ -88,4 +88,4 @@ On Linux:
 ssh -T git@github.com   #To verify
 git clone ssh://git@github.com/user-name/repo   #copy url for UI, code, SSH
 
-
+git branch --set-upstream-to=origin/<branch-name> master #link local repo with remote starting from master(origin/master master) or <branch-name>
