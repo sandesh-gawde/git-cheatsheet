@@ -19,24 +19,38 @@ git diff            #shows the difference between the working directory and the 
 git commit          #permanently stores file changes from the staging area in the repository
 git log             #shows a list of all previous commits
 
+To correct author on commit:
+- In case commit happend with wrong author name
+i. amend ~/.gitconfig for correct author creds
+ii. git commit --amend -C HEAD --reset-author
+OR
+git commit --amend --author="Author Name <email@address.com>" --no-edit                     #Didn't work for me.
+
+
 #Sync with remote
 git config --global user.name "sandesh-gawde"
 git config user.email "email@example.com"
 git config --global credential.helper wincred     #cache credentials
 git clone https://github.com/sandesh-gawde/repo-name                                        #clone the repo on local system
-git remote add origin https://github.com/sandesh-gawde/Intro_to_C_and_software_design.git   #create remote repo's directory in local
+
+git remote add origin https://github.com/sandesh-gawde/Intro_to_C_and_software_design.git  #link local repo with its remote repo. 
+git push -u origin master                                                                   #push changes from local to remote, push master branch to origin.
+
 git pull                                                                                    #Pull changes from remote to local
-git push -u origin master                                                                   #push changes from local to remote
+
 
 # Clone v/s remote add v/s fork
 - When a repository is cloned to a local system, it is copied and linked to remote system. Any changes can be synced (pushed or pulled) with remote system.
 git clone <url>
-- To avoid syncing changes to other's repository, we can clone them and link with our remtoe system. By remote_delete + remote_add or set_url.
-- Remote can simply be used to link any locally intiated repo with remote
+
+- To avoid syncing changes to other's repository, we can clone them and link with our remote system. By remote_delete + remote_add or set_url.
+- Remote can simply be used to link any locally intiated repo with its remote repo
+
 git remote remove origin
 git remote add origin <url>
 OR
 git remote set-url origin <url>
+
 - Fork can be used to clone without sync with other's repo. It is equivalent to clone and link to remote, without relating to author's repo.
 
 
@@ -45,6 +59,11 @@ git checkout HEAD filename (git checkout -- filename): Discards changes in the w
 git reset HEAD filename: Unstages file changes in the staging area.
 git reset commit_SHA: Resets to a previous commit in your commit history.
 
+* Branch:
+Each repository can have one or more branches. The main branch — the one where all changes eventually get merged back into, is called main. The main branch is usually the working version of a project and contains the production code, so it’s very important to only merge clean and correct code into it!
+
+When someone wants to create a new feature, fix a bug, or just experiment, they should always create their own branch with a descriptive name.
+
 git branch: Lists all a Git project’s branches.
 git branch branch_name: Creates a new branch.
 git checkout branch_name: Used to switch from one branch to another.
@@ -52,12 +71,14 @@ git merge branch_name: Used to join file changes from one branch to another, exc
 git branch -d branch_name: Deletes the branch specified.
 git branch -D branch_name: Delete un-merged branches.
 
-The workflow for Git collaborations typically follows this order:
+* The workflow for Git collaborations typically follows this order:
 Fetch and merge changes from the remote
 Create a branch to work on a new project feature
 Develop the feature on your branch and commit your work
 Fetch and merge from the remote again (in case new commits were made while you were working) (sync local content with GitHub - git pull)
-Push your branch up to the remote for review
+Create a pull-request for changes to be reviewed, once reviewed and approved, merge the changes.
+Push your branch up.
+Once the changes are merged, keep the active branches only and delete closed ones to manage workplace.
 
 A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer.
 The Git Collaborative Workflow are steps that enable smooth project development when multiple collaborators are working on the same Git project.
@@ -89,3 +110,19 @@ ssh -T git@github.com   #To verify
 git clone git@github.com/user-name/repo   #copy url for UI, code, SSH
 
 git branch --set-upstream-to=origin/<branch-name> master #link local repo with remote starting from master(origin/master master) or <branch-name>
+
+
+* About README
+--------------
+Conventions of a Good README File
+Your README file should be as good as your project itself.
+
+Make your project stand out look professional by at least including the following elements in your README:
+
+Project Title: the name of your project
+Description: This is an extremely important component of the README. You should describe the main purpose of your project. Answer questions like “why did you build this project?” and “what problem(s) does it solve?”. It also helps to include your motivations for the project and what you learned from it.
+Features: If your project has multiple features, list them here. Don’t be afraid to brag if your project has unique features that make it stand out. You can even add screenshots and gifs to show off the features.
+How to use: Here, you should write step-by-step instructions on how to install and use your project. Any software or package requirements should also be listed here.
+Technologies: List all the technologies and/or frameworks you used and what purpose they serve in your project.
+Collaborators: If others have contributed to your project in any way, it is important to give them credit for their work. Write your team members’ or collaborators’ names here along with a link to their GitHub profile.
+License: It’s also important to list a license on your README so other developers can understand what they can and cannot do with your project. You can use this guide to help you choose a license.
